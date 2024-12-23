@@ -1,0 +1,6 @@
+[submodule "rainwater-dashboard"]
+	path = rainwater-dashboard
+	url = ./rainwater-dashboard
+[submodule "rainwater-server"]
+	path = rainwater-server
+	url = ./rainwater-server
