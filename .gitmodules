@@ -1,6 +1,6 @@
 [submodule "rainwater-dashboard"]
 	path = rainwater-dashboard
-	url = ./rainwater-dashboard
+	url = "https://github.com/jasondunken/rainwater-dashboard.git"
 [submodule "rainwater-server"]
 	path = rainwater-server
-	url = ./rainwater-server
+	url = "https://github.com/jasondunken/rainwater-server.git"
