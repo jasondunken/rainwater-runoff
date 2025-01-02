@@ -49,7 +49,7 @@ export type SourceInfo = {
     Citation: string;
 };
 
-export type mapLocation = {
+export type MapLocation = {
     siteId: string;
     lat: number;
     lng: number;
