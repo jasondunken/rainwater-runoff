@@ -59,4 +59,5 @@ export type MapLocation = {
 export type DataRow = {
     id: string;
     data: string[];
+    invalidValueIndices?: number[];
 };
