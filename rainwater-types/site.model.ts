@@ -51,9 +51,9 @@ export type SourceInfo = {
 
 export type MapLocation = {
     siteId: string;
+    sondeId: string;
     lat: number;
     lng: number;
-    icon: any;
 };
 
 export type DataRow = {
