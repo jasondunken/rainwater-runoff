@@ -1,14 +1,11 @@
 import * as readline from "readline";
-import * as crypto from "crypto";
 
 import VSonde from "./v-sonde.mjs";
 
 class VSondeCLI {
-    SAMPLE_RATE = 5000;
-
     constructor() {
         this.log("starting v-sondes-cli...");
-        this.sondes = [new VSonde(crypto.randomUUID(), this.log)];
+        this.sondes = [new VSonde(this.log)];
 
         this.reader = readline.createInterface({
             input: process.stdin,
@@ -28,18 +25,15 @@ class VSondeCLI {
 
     start() {
         this.log("starting v-sondes...");
-        this.timer = setInterval(() => this.update(), this.SAMPLE_RATE);
+        for (let sonde of this.sondes) {
+            sonde.start();
+        }
     }
 
     stop() {
         this.log("stopping v-sondes...");
-        clearInterval(this.timer);
-    }
-
-    update() {
-        this.log("starting sonde update...");
         for (let sonde of this.sondes) {
-            sonde.update();
+            sonde.stop();
         }
     }
 
@@ -69,7 +63,11 @@ class VSondeCLI {
 
     log(message) {
         process.stdout.write("\n");
-        readline.cursorTo(process.stdout, 0, process.stdout.getWindowSize()[1] - 2);
+        readline.cursorTo(
+            process.stdout,
+            0,
+            process.stdout.getWindowSize()[1] - 2
+        );
         console.log(message);
     }
 }

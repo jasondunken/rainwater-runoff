@@ -56,6 +56,12 @@ export type MapLocation = {
     lng: number;
 };
 
+export type SondeReport = {
+    sondeId: string;
+    sondePw: string;
+    data: string[];
+};
+
 export type DataRow = {
     id: string;
     data: string[];
