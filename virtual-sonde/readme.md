@@ -5,6 +5,7 @@ A cli form managing virtual sondes
 current features:
 
 -   start/stop a single virtual sonde that sends a POST request to localhost:3000 with a body that is a `DataRow`
+-   induce an invalid data report to test server handling of invalid data
 
 possible features:
 

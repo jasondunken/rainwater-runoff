@@ -86,11 +86,35 @@ export default class VSonde {
 
         lastTime.setHours(lastTime.getHours() + parseInt(newData[1]));
         newData[2] = this.formatDate(lastTime);
+        this.data = [...newData];
 
         // break stuff here
+        if (this.breakStuff) {
+            console.log("generating broken data!");
+            /**
+             * here are the criteria when the rainwater missing data Alert App should send an alert to user via (email and/or text), if:
+             * 1. the missing timestep is greater than 15-minutes for depth, conductivity, or temperature
+             * 2. any data not-a-number
+             * 3. water depth in the rain barrel <25 mm
+             * 4. water depth in the rain barrel >890 mm (barrel max. height)
+             * 5. conductivity < 2 µS/cm and > 1000 µS/cm
+             * 6. temperature below 0 °C, and temperature beyond -40 °C to +60 °C
+             */
 
-        this.data = newData;
+            // date, utc offset, and date w/offset are columns 0-2
+            // sensor values are columns >= 3
+            const colId = Math.floor(Math.random() * (newData.length - 3) + 3);
+            newData[colId] = undefined;
+
+            this.breakStuff = false;
+        }
+
         return newData;
+    }
+
+    breakStuff = false;
+    break() {
+        this.breakStuff = true;
     }
 
     formatDate(date) {

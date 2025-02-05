@@ -5,7 +5,9 @@ import VSonde from "./v-sonde.mjs";
 class VSondeCLI {
     constructor() {
         this.log("starting v-sondes-cli...");
-        this.sondes = [new VSonde(this.log)];
+        const sonde = new VSonde(this.log);
+        sonde.cliId = "1";
+        this.sondes = [sonde];
 
         this.reader = readline.createInterface({
             input: process.stdin,
@@ -43,8 +45,18 @@ class VSondeCLI {
         process.exit(0);
     }
 
+    breakStuff(cliId) {
+        if (cliId) {
+            const sonde = this.sondes.find((sonde) => {
+                return sonde.cliId === cliId;
+            });
+            sonde.break();
+        }
+    }
+
     handleCommand(cmd) {
-        switch (cmd) {
+        cmd = cmd.split(" ");
+        switch (cmd[0]) {
             case "start":
                 this.start();
                 break;
@@ -53,6 +65,9 @@ class VSondeCLI {
                 break;
             case "exit":
                 this.exit();
+                break;
+            case "break":
+                this.breakStuff(cmd[1]);
                 break;
             default:
                 this.log(`unknown command: ${cmd}`);
