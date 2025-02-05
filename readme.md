@@ -1,5 +1,7 @@
 # Mono repo for the Roof Rainwater Runoff sonde monitoring system
 
+The Roof Rainwater Runoff monitoring system is comprised of three primary components, sondes in field that are running a customized Arduino script, a server that receives sonde data and validetes it as it is produced, and a web client for data monitoring and exploration.
+
 ## Rainwater-Dashboard is an Angular v19 client for the system
 
 -   [Rainwater dashboard readme](rainwater-dashboard/readme.md)
