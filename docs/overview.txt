@@ -1,0 +1,24 @@
+                            R3 Monitoring System
+Providing Real Time Remote Sensor Data Monitoring, Validation, and Fault Notification
+
+    The initial system Roof Rainwater Runoff (R3) Monitoring System is intended to 
+improve upon utilizes sondes provided by EnviroDiy (www.envirodiy.org/). These 
+sondes are based on an Arduino single board computer (SBC) called the 
+Mayfly Data Logger (www.envirodiy.org/mayfly/). The Mayfly SBC runs an open-source 
+script (github.com/EnviroDIY/EnviroDIY_Mayfly_Logger) that directs sonde data to 
+the Monitor My Watershed (monitormywatershed.org/) servers. Sensor data is discoverable 
+from Monitor My Watershed. Monitor My Watershed does not facilitate real time data 
+monitoring or generate any user notification if invalid sensor data is received. 
+Currently Monitor My Watershed provides, 
+
+    "Only the most recent 72 hours of available data are shown on the 
+    sparkline plots. The plots are broken when there are gaps in the data 
+    longer than 6 hours. Plots shaded in green have recent data. 
+    Plots shaded in red have not reported data in the last 72 hours."
+
+The Roof Rainwater Runoff (R3) Monitoring System is comprised of three primary components:
+- Arduino based sondes running a customized script based on open source examples
+- A server that receives, validates, and stores sensor data and metadata
+- A web interface for site/sonde management and data exploration 
+
+
