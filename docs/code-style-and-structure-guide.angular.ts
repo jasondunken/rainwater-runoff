@@ -30,6 +30,8 @@ export class SitePickerComponent {
     //* Inputs, Outputs, Signals, and Injections */
     @Output() selectedSite = new EventEmitter<string>();
 
+    //* ViewChild element references */
+
     //* Member Variables */
     sites!: Site[];
 
